@@ -27,7 +27,6 @@ public class SimpleGoogleTest {
         drv.manage().window().maximize();
         wait = new WebDriverWait(drv, 4);
         performLogin();
-        // drv.get(http://localhost/litecart/admin/);
 
         // wait.until(ExpectedConditions.presenceOfElementLocated(sidebar));
 
