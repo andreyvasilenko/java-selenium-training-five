@@ -5,14 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.util.List;
 
-
-public class SimpleGoogleTest {
+public class Task3 {
 
     private WebDriver drv;
     private WebDriverWait wait;
@@ -27,10 +24,6 @@ public class SimpleGoogleTest {
         drv.manage().window().maximize();
         wait = new WebDriverWait(drv, 4);
         performLogin();
-
-        // wait.until(ExpectedConditions.presenceOfElementLocated(sidebar));
-
-
     }
     @After
     public void shutDown(){
@@ -57,12 +50,6 @@ public class SimpleGoogleTest {
 
         By menuBlock = By.cssSelector("#sidebar ul#box-apps-menu");
 
-      /*  List<WebElement> menuItems=drv.findElement(menuBlock).findElements(By.xpath("./li"));
-
-        for (WebElement menuItem: menuItems) {
-            System.out.println("item:" + menuItem.getText());
-            menuItem.click();
-        }*/
       By selectedItem = By.cssSelector("li.selected");
 
       int menuSize = drv.findElement(menuBlock).findElements(By.xpath("./li")).size();
@@ -78,11 +65,7 @@ public class SimpleGoogleTest {
                   drv.findElement(selectedItem).findElement(By.cssSelector("li:nth-of-type(" + subMenuItem + ")")).click();
                   Assert.assertTrue("Page Title (h1 element) not found", isElementPresent(By.cssSelector("h1")));
               }
-
           }
-
       }
-
     }
-
 }
